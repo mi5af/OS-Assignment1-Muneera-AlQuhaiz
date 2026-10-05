@@ -29,10 +29,10 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
+| **Full Name** | [منيره فهد القحيز] |
+| **Student ID** | [446051584] |
+| **University Email** | [446051584]@std.psau.edu.sa |
+| **GitHub Username** | [mi5fa] |
 | **Repository Link** | [Paste your repository link here] |
  
 ---
@@ -129,16 +129,21 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [October 4, 2026, 10:30 AM]
+**What I did**: Forked the repository and updated student ID
 
 **Details**:
+- set my Git name and university email in VS Code
+- forked the project repository on GitHub
+- changed the student ID in line 150 to my ID
+- tested running the code
+- commite and push
 
-**Challenges**:
+**Challenges**: the VS Code terminal was not accepting typed input or pasting commands at first
 
-**Solution**:
+**Solution**: fixed it using the mouse right click paste option and update Git config settings
 
-**Time spent**:
+**Time spent**: 45 minutes
 
 ---
 
