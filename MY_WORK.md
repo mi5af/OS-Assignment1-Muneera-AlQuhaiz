@@ -137,7 +137,7 @@
 - forked the project repository on GitHub
 - changed the student ID in line 150 to my ID
 - tested running the code
-- commite and push
+- committed and pushed
 
 **Challenges**: the VS Code terminal was not accepting typed input or pasting commands at first
 
@@ -147,16 +147,21 @@
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 2 - [October 5, 2026, 6:30 PM]
+**What I did**: Added the Process Priority feature to the code
 
 **Details**:
+- added a priority variable and getter method to the process class
+- updated the process constructor to set a random priority (1-10)
+- modified addProcessToQueue to show the priority in the consol output
+- ran the code to test it 
+- committed and pushed
 
-**Challenges**:
+**Challenges**: adding the priority text without breaking the existing consol colors
 
-**Solution**:
+**Solution**: added the new priority code inside the existing print statement carefully
 
-**Time spent**:
+**Time spent**: 34 minutes
 
 ---
 
