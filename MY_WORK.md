@@ -165,16 +165,20 @@
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 3 - [October 6, 2026, 4:35 PM]
+**What I did**: Added the context switch counter to the CPU scheduler simulation
 
 **Details**:
+- declared a static contextSwitchCounter variable to keep track of total context switches
+- incremented contextSwitchCounter inside the main scheduling loop
+- added a final print statement at the end of the simulation to display total number of context switches
+- fixed class scoping and brace placement
 
-**Challenges**:
+**Challenges**: resolving syntax and brace placement errors that caused: class, interface, enum and could not find or load main class during compilation
 
-**Solution**:
+**Solution**: corrected the nested methods inside SchedulerSimulation.java 
 
-**Time spent**:
+**Time spent**: 1 hour 20 minutes
 
 ---
 
