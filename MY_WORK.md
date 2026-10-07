@@ -182,16 +182,22 @@
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 4 - [October 7, 2026, 2:14 PM]
+**What I did**: implemented feature 3 in the CPU scheduler simulation
 
 **Details**:
+- added startTime, finishTime and waitingTime attributes to Process class
+- record process creation time upon instantiation and calculated turnaround and waiting times
+- created list to store finished processes
+- added a formatted concise process summary table at the end of simulation displaying process name, burst time, waiting time, and turnaround time
+- complied and tested the program successfully
+- committed and pushed 
 
-**Challenges**:
+**Challenges**: managing process completion tracking across different execution branches and fixing variable scope errors 
 
-**Solution**:
+**Solution**: added setFinishTime() and enqueued completed processes to completedProcesses list when isFinish() evaluated to true, ensuring accurate timing records before printing the summary table
 
-**Time spent**:
+**Time spent**: 50 minutes
 
 ---
 
