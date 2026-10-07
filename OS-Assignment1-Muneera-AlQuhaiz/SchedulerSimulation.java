@@ -3,6 +3,7 @@ import java.util.Queue;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.ArrayList;
 
 // ANSI Color Codes for enhanced terminal output
 class Colors {
@@ -30,6 +31,9 @@ class Process implements Runnable {
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
     private int priority;
+    private long startTime;
+    private long finishTime;
+    private int waitingTime;
 
     // Constructor to initialize the process with name, burst time, and time quantum
     public Process(String name, int burstTime, int timeQuantum, int priority) {
@@ -38,6 +42,7 @@ class Process implements Runnable {
         this.timeQuantum = timeQuantum;
         this.priority = priority;
         this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
+        this.startTime= System.currentTimeMillis();
     }
 
     // This method will be called when the thread for this process is started
@@ -126,6 +131,12 @@ class Process implements Runnable {
         }
     }
 
+    public void setFinishTime(long finishTime) {
+        this.finishTime = finishTime;
+        long turnaroundTime = finishTime - startTime;
+        this.waitingTime = (int) Math.max(0, turnaroundTime - burstTime); 
+    }
+
     // Getter methods for process name, burst time, and remaining time
     public String getName() {
         return name;
@@ -142,6 +153,15 @@ class Process implements Runnable {
     public int getRemainingTime() {
         return remainingTime;
     }
+
+    public int getWaitingTime() {
+        return this.waitingTime;
+    }
+
+    public int getTurnaroundTime() {
+        return this.waitingTime + this.burstTime;
+    }
+
 
     // Check if the process has finished (i.e., no remaining time)
     public boolean isFinished() {
@@ -168,7 +188,7 @@ public class SchedulerSimulation {
         
         // Queue to manage processes in a First-In-First-Out (FIFO) order
         Queue<Thread> processQueue = new LinkedList<>();
-        
+        ArrayList<Process> completedProcesses = new ArrayList<>();
         // Map to associate each thread with its respective process object
         Map<Thread, Process> processMap = new HashMap<>();
         
@@ -229,6 +249,7 @@ public class SchedulerSimulation {
             Thread currentThread = processQueue.poll(); // Dequeues the next thread
             Process currentProcess = processMap.get(currentThread); 
             contextSwitchCount++;
+            
 
             
             // Print the current process queue (list of process IDs in the queue)
@@ -262,6 +283,8 @@ public class SchedulerSimulation {
             
             // Check if the process is not finished
             if (!process.isFinished()) {
+                process.setFinishTime(System.currentTimeMillis());
+                completedProcesses.add(process);
                 // If the process still has remaining time, check if there are more processes in queue
                 if (!processQueue.isEmpty()) {
                     // Re-enqueue the process to give it another chance to run in the next round
@@ -288,6 +311,15 @@ public class SchedulerSimulation {
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
+        System.out.println("\n--- PROCESS SUMMARY TABLE ---");
+        System.out.printf("%-10s %-12s %-12s %-15s%n", "Process", "Burst(ms)", "Waiting(ms)", "Turnaround(ms)");
+        System.out.println("--------------------------------------------------");
+
+        for (Process p : completedProcesses) {
+        System.out.printf("%-10s %-12d %-12d %-15d%n", 
+                          p.getName(), p.getBurstTime(), p.getWaitingTime(), p.getTurnaroundTime());
+    }
+        System.out.println("--------------------------------------------------\n");           
     }
 
     
