@@ -33,7 +33,7 @@
 | **Student ID** | [446051584] |
 | **University Email** | [446051584]@std.psau.edu.sa |
 | **GitHub Username** | [mi5fa] |
-| **Repository Link** | [Paste your repository link here] |
+| **Repository Link** | [https://github.com/mi5af/OS-Assignment1-Muneera-AlQuhaiz] |
  
 ---
 
@@ -201,16 +201,19 @@
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
+### Entry 5 - [October 8, 2026, 8:00 PM]
+**What I did**: Completed reflection questions, technical documentation.
 
 **Details**:
+- Filled in part B (reflection) answering all four questions about multithreading and problem solving
+- Answerd part c (Technical answers) including Thread vs Process comparison, ready queue behavior with my ID example, thread lifecycle, and real-world scheduling application.
+- Reviewed the complete MY_WORK.md file to ensure all requirements and rubrics from README.md are fully met before video recording
 
-**Challenges**:
+**Challenges**: Formulating clear technical concepts and output explanations concisely
 
-**Solution**:
+**Solution**: Structured the answers logically using bullet points, short clear sentences, and actual code output snippets to make the documentation simple and precise.
 
-**Time spent**:
+**Time spent**: 1 hour and 15 minutes
 
 ---
 
