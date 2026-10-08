@@ -257,7 +257,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I learned how Java handles threads using the thread class and runnable interface. I practiced creating threads and running them with Thread.start(). I also saw how Thread.sleep() pauses execution to simulate CPU work. Using Thread.join() helped me understand how the main program waits for threads to finish. I learned how RR scheduling shares CPU time fairly between processes using a time quantum.]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -265,7 +265,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part was tracking the waiting time and turnaround time in feature 3. It was tricky to calculate the correct timing when processes finished at different stages. I also had some syntax errors with missing brackets while editing the code. Managing variables like static counters inside the scheduler loop took extra effort to fix. However, testing the code step by step helped me resolve these issues.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -273,7 +273,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I solved my problems by testing the code frequently after adding each feature. When compilatoin errors appeared in VS Code, I checked my brackets and variable scope carefully. I used System.out.println() statements to inspect process state changes and verify calculation. I also re-read the assignment instruction in README.me whenever I got stuck. Breaking the tasks into small parts made the implementation much easier to manage.]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -281,7 +281,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Multithreading is very useful in real-world applications to keep software fast and resposive. For example, web browser use threads to load web pages while keeping the buttons responsive. Mobile apps use background threads to download data without freezing the user screen. Web serves also handle thousands of user requests at the same time using threads. Understandig these concepts helps me build efficient application in the future.]
 
 ### Optional: What would you like to learn more about?
 
@@ -313,7 +313,7 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[A process is an independent application with its own memory, while a thread is a smaller task inside a process that shares memory. We used threads in this assignment because they are faster to create and use less memory than full processes. In SchedulerSimulation.java, the Process class is a object we created, and it runs inside a real thread using new Thread(process).]
 
 ## Question 2: Ready Queue Behavior
 
@@ -325,15 +325,19 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[When a process does not finish within its time quantum, it stops running and goes back to the end of the ready queue. In mt test run (student ID: 446051584), process P1 needed more time than the quantum, so it re-entered the queue until its remaining time became zero. Re-queueing is fair because it stops one long process from taking all the CPU time.]
 
 Example from my output:
 ```
-[Paste a relevant snippet from your program output here showing a process being re-queued]
+[ P1 executing quantum [3538ms] 
+  ظأة Quantum progress: [ظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûê] 100%
+  ظ╕ P1 completed quantum 3538ms ظ¤é Overall progress: [ظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûêظûê] 100%
+     Remaining time: 0ms
+  ظ£ô P1 finished execution!]
 ```
 
 **Explanation of example:**
-[Explain what is happening in the output snippet you pasted.]
+[This output snippet shows process P1 executing its required burst time of 3538 ms inside the RR scheduler. Because its burst time was less than the time quantum (5000ms), P1 completed its execution during this time slice, leaving a remaining time of 0 ms, so it finished and exited the queue instead of re-entering it.]
 
 ## Question 3: Thread Lifecycle
 
@@ -343,15 +347,15 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences overall; one short explanation per state)*
 
-1. **New**: [When is P1 in the New state?]
+1. **New**: [P1 is in the New state when created using Process p1= new Process()]
 
-2. **Runnable**: [When does P1 become Runnable?]
+2. **Runnable**: [P1 becomes Runnable when new Thread(p1) is created and thread.start() is called]
 
-3. **Running**: [When is P1 Running?]
+3. **Running**: [P1 is Running when the CPU picks it from the queue and executes its run() method]
 
-4. **Waiting**: [When and why would a thread be Waiting?]
+4. **Waiting**: [P1 goes into waiting state when Thread.sleep(quantum) pauses it during execution]
 
-5. **Terminated**: [When is P1 Terminated?]
+5. **Terminated**: [P1 becomes terminated when run() finishes and thread.join() completes]
 
 ## Question 4: Real-World Applications
 
@@ -361,21 +365,21 @@ Example from my output:
 
 **Your Answer:** *(3-5 sentences per example)*
 
-### Example 1 (operating-system level): [Name of scenario]
+### Example 1 (operating-system level): [OS CPU Scheduling]
 
 **Description**:
-[Describe the real-world scenario.]
+[The operating system scheduler uses RR to share CPU time between running desktop apps like a browser and a music player.]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[It gives equal CPU  time to every open application so no program freezes while running in the background]
 
-### Example 2: [Name of application/scenario]
+### Example 2: [Web Server Request Handling]
 
 **Description**:
-[Describe the real-world scenario or application.]
+[A web server handles requests from many website visitor at the same time.]
 
 **Why Round-Robin works well here**:
-[Fairness, responsiveness, predictability?]
+[RR shares server time fairly so every user gets a quick response without waiting for heavy tasks to finish]
 
 ## Summary
 
