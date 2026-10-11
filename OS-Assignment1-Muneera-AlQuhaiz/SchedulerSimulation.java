@@ -171,7 +171,7 @@ class Process implements Runnable {
     
 
 public class SchedulerSimulation {
-    public static int contextSwitchCount = 0;
+    public static int contextSwitchCount = 0; // Feature 2: Count the number of context switches during the simulation
     public static void main(String[] args) {
         // ⚠️ IMPORTANT: Put your student ID here to seed the random number generator
         // This makes your output unique to you - DO NOT forget to change this!
@@ -223,7 +223,7 @@ public class SchedulerSimulation {
         for (int i = 1; i <= numProcesses; i++) {
             // Random burst time for each process between timeQuantum/2 and 3*timeQuantum
             int burstTime = timeQuantum/2 + random.nextInt(2 * timeQuantum + 1);
-            int priority = random.nextInt(10) + 1;
+            int priority = random.nextInt(10) + 1; //Feature 1: Random priority between 1 and 10
             // Create a new process object with a unique name, burst time, and the defined time quantum
             Process process = new Process("P" + i, burstTime, timeQuantum, priority);
             
@@ -311,6 +311,8 @@ public class SchedulerSimulation {
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
+
+        //Feature 3: Print a summary table of all completed processes with their burst time, waiting time, and turnaround time
         System.out.println("\n--- PROCESS SUMMARY TABLE ---");
         System.out.printf("%-10s %-12s %-12s %-15s%n", "Process", "Burst(ms)", "Waiting(ms)", "Turnaround(ms)");
         System.out.println("--------------------------------------------------");
